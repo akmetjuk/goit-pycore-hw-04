@@ -11,6 +11,7 @@ def total_salary(path: str) -> tuple[int, int]:
 
     Raises:
         FileNotFoundError: Якщо файл за вказаним шляхом не знайдено
+        UnicodeDecodeError: Якщо файл не може бути прочитаний через проблеми з кодуванням
     """
     try:
         with open(path, 'r', encoding="utf-8") as file:
