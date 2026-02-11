@@ -5,6 +5,7 @@ from HWTask4.MyPersonalAssistance import main as assistant_bot
 import pathlib
 import sys
 
+
 if __name__ == "__main__":
     current_dir = pathlib.Path(__file__).parent
 
@@ -29,10 +30,10 @@ if __name__ == "__main__":
 
     args = sys.argv[1:]  # Отримуємо аргументи командного рядка, пропускаючи ім'я скрипта
     print(f"Arguments: {args}")
-    print_path_info(args[0] if args else current_dir / "HWTask1" )
+    print_path_info(args[0] if args else current_dir / ".venv")
 
     try:
-        print_path_info(args[0] if args else current_dir / "HWTask99" )
+        print_path_info(current_dir / "SomeNonExistentDirectory")
     except Exception as e:
         print(e)
 

@@ -1,8 +1,7 @@
 import re
 
 
-def __commands__() -> list[str]:
-    return ["hello", "add", "change", "phone", "help", "all", "close", "exit"]
+__commands__ = ["hello", "add", "change", "phone", "help", "all", "close", "exit"]
 
 
 def normalize_phone(phone_number: str) -> str:
@@ -69,7 +68,7 @@ def show_all(contacts: dict[str, str]) -> str:
 def parse_input(user_input: str) -> tuple[str, ...]:
     cmd, *args = user_input.split()
     cmd = cmd.strip().lower()
-    if cmd not in __commands__():
+    if cmd not in __commands__:
         raise ValueError("Invalid command.")
     return cmd, *args
 
@@ -91,11 +90,11 @@ def main():
             elif command == "change":
                 print(change_contact(args, contacts))
             elif command == "phone":
-                print(show_phone(args, contacts))
+                print(show_phone(args[0], contacts))
             elif command == "all":
                 print(show_all(contacts))
             elif command == "help":
-                print(f"Use the following commands: {', '.join(__commands__())}")
+                print(f"Use the following commands: {', '.join(__commands__)}")
         except ValueError as e:
             print(e)
 
