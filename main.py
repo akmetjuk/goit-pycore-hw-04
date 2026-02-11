@@ -1,6 +1,7 @@
 from HWTask1.task_1 import total_salary
 from HWTask2.task2 import get_cats_info
-from HWTask3.task3 import print_all_files_and_directories
+from HWTask3.task3 import print_all_files_and_directories as print_path_info
+from HWTask4.MyPersonalAssistance import main as assistant_bot
 import pathlib
 import sys
 
@@ -28,9 +29,12 @@ if __name__ == "__main__":
 
     args = sys.argv[1:]  # Отримуємо аргументи командного рядка, пропускаючи ім'я скрипта
     print(f"Arguments: {args}")
-    print_all_files_and_directories(args[0] if args else current_dir / "HWTask1" )
+    print_path_info(args[0] if args else current_dir / "HWTask1" )
 
     try:
-        print_all_files_and_directories(args[0] if args else current_dir / "HWTask12" )
+        print_path_info(args[0] if args else current_dir / "HWTask99" )
     except Exception as e:
         print(e)
+
+    print(f"{'=' * 8} task #4 checking")
+    assistant_bot()
