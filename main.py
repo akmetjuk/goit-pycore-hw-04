@@ -1,7 +1,8 @@
 from HWTask1.task_1 import total_salary
 from HWTask2.task2 import get_cats_info
+from HWTask3.task3 import print_all_files_and_directories
 import pathlib
-
+import sys
 
 if __name__ == "__main__":
     current_dir = pathlib.Path(__file__).parent
@@ -22,3 +23,14 @@ if __name__ == "__main__":
     print(f"{'=' * 8} task #2 checking")
     cats_info = get_cats_info(current_dir / "HWTask2" / "cats.txt")
     print(cats_info)
+
+    print(f"{'=' * 8} task #3 checking")
+
+    args = sys.argv[1:]  # Отримуємо аргументи командного рядка, пропускаючи ім'я скрипта
+    print(f"Arguments: {args}")
+    print_all_files_and_directories(args[0] if args else current_dir / "HWTask1" )
+
+    try:
+        print_all_files_and_directories(args[0] if args else current_dir / "HWTask12" )
+    except Exception as e:
+        print(e)

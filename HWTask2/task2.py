@@ -1,6 +1,19 @@
 
 
-def get_cats_info(path: str):
+def get_cats_info(path: str) -> list[dict[str, str | int]]:
+    """
+    Зчитати інформацію про котів з файлу та повернути її у вигляді списку словників.
+
+    Args:
+        path: Шлях до файлу з даними про котів
+
+    Returns:
+        list: Список словників, де кожен словник містить інформацію про кота (id, name, age)
+
+    Raises:
+        FileNotFoundError: Якщо файл за вказаним шляхом не знайдено
+        UnicodeDecodeError: Якщо файл не може бути прочитаний через проблеми з коду
+    """
     try:
         with open(path, 'r', encoding="utf-8") as file:
             lines = file.readlines()
@@ -16,7 +29,7 @@ def get_cats_info(path: str):
                         cats.append({"id": cat_id, "name": cat_alias, "age": cat_age})
                     except ValueError:
                         continue
-            return cats            
+            return cats
     except UnicodeDecodeError:
         raise
     except FileNotFoundError:
